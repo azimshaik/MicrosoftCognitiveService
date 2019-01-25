@@ -6,7 +6,7 @@
             "name": "Start",
             "type": "node",
             "request": "launch",
-            "program": "${workspaceFolder}/visionAPI/src/index.ts",
+            //"program": "${workspaceFolder}/visionAPI/src/index.ts",
             "outFiles": [
                 "${workspaceFolder}/**/*.js"
             ],
