@@ -1,10 +1,11 @@
-//console.log("This is a test");
+// console.log("This is a test");
 import * as request from "request";
 import {config} from "./config";
 import * as querystring from "querystring";
 import * as fs from "fs";
 import {Buffer} from "buffer";
 
+analyzeImage("azim.jpeg");
 function analyzeImage(fileName: string){
     const requestOptions: request.CoreOptions = {
         headers:{
@@ -14,11 +15,11 @@ function analyzeImage(fileName: string){
         body: readImage(__dirname+ "/" + fileName)
     }
     const params: any = {
-        "visualFeatures": "Categories,Descriotion,Color",
+        "visualFeatures": "Categories,Description,Color",
         "details":"",
         "language":"en"
     };
-    const uri = config.endpoint + "/analyze" + querystring.stringify(params);
+    const uri = config.endpoint + "/analyze?" + querystring.stringify(params);
     request.post(
         uri,
         requestOptions,
@@ -30,7 +31,7 @@ function analyzeImage(fileName: string){
 function readImage(filePath: string){
     const fileData = fs.readFileSync(filePath).toString("hex");
     const result = [];
-    for(let i = 0; i<filePath.length; i +=2){
+    for(let i = 0; i<fileData.length; i +=2){
         result.push(parseInt(fileData[i]+""+fileData[i+1], 16))
     }
     return new Buffer(result);
