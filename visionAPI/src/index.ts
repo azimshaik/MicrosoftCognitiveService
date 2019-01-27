@@ -5,7 +5,7 @@ import * as querystring from "querystring";
 import * as fs from "fs";
 import {Buffer} from "buffer";
 
-analyzeImage("famousperson3.jpg", 'celebrities');
+analyzeImage("landmark.jpg", 'landmarks');
 function analyzeImage(fileName: string, model?: string): void{
     const requestOptions: request.CoreOptions = {
         headers:{
