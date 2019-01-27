@@ -1,0 +1,30 @@
+{
+    "faces": [
+      {
+        "age": 29,
+        "gender": "Male",
+        "faceRectangle": {
+          "left": 354,
+          "top": 298,
+          "width": 186,
+          "height": 186
+        }
+      },
+      {
+        "age": 32,
+        "gender": "Male",
+        "faceRectangle": {
+          "left": 227,
+          "top": 143,
+          "width": 151,
+          "height": 151
+        }
+      }
+    ],
+    "requestId": "86ca227f-e659-48dd-9727-a8fcf75bb684",
+    "metadata": {
+      "width": 640,
+      "height": 852,
+      "format": "Jpeg"
+    }
+  }
