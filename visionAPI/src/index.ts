@@ -5,7 +5,7 @@ import * as querystring from "querystring";
 import * as fs from "fs";
 import {Buffer} from "buffer";
 
-analyzeImage("landmark.jpg", 'landmarks');
+analyzeImage("grouppic.jpg");
 function analyzeImage(fileName: string, model?: string): void{
     const requestOptions: request.CoreOptions = {
         headers:{
@@ -16,7 +16,7 @@ function analyzeImage(fileName: string, model?: string): void{
     }
     const params: any = {
         // there are more features to explore- check Azure documentation 
-        "visualFeatures": "Categories,Description,Color",
+        "visualFeatures": "Faces",
         "details":"",
         "language":"en"
     };
