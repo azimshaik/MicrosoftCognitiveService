@@ -5,8 +5,8 @@ import * as querystring from "querystring";
 import * as fs from "fs";
 import {Buffer} from "buffer";
 
-analyzeImage("azim.jpeg");
-function analyzeImage(fileName: string){
+analyzeImage("famousperson3.jpg", 'celebrities');
+function analyzeImage(fileName: string, model?: string): void{
     const requestOptions: request.CoreOptions = {
         headers:{
             "Content-Type": "application/octet-stream",
@@ -15,11 +15,19 @@ function analyzeImage(fileName: string){
         body: readImage(__dirname+ "/" + fileName)
     }
     const params: any = {
+        // there are more features to explore- check Azure documentation 
         "visualFeatures": "Categories,Description,Color",
         "details":"",
         "language":"en"
     };
-    const uri = config.endpoint + "/analyze?" + querystring.stringify(params);
+    let uri = "";
+
+    if(model){
+        params.model = model;
+        uri = config.endpoint + "/models/"+ model + "/analyze?"+ querystring.stringify(params);
+    }else{
+        uri = config.endpoint + "/analyze?" + querystring.stringify(params);
+    }
     request.post(
         uri,
         requestOptions,
